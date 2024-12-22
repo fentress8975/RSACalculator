@@ -13,7 +13,7 @@
 <body>
     <div><button>Очистить поля</button></div>
     <div class="border-div">
-        <p>Введите свои исходные данные</p>
+        <p>Введите два простых числа</p>
         <label for="p">Значение p:</label>
         <input type="number" min="1" name="p" id="p">
         <label for="q">Значение q:</label>

@@ -2,22 +2,20 @@
 
 $action = explode("?", $_SERVER["REQUEST_URI"]);
 header('Content-Type: application/json; charset=UTF-8');
+include_once("php/RSACalculator.php");
 
 switch ($action[0]) {
     case '/calculateEulAndN':
 
-        $testarr = ['eul' => 101, 'n' => 202];
-        echo json_encode($testarr);
+        echo json_encode(RSACalculator::calculateEulAndN($_GET['q'],$_GET['p']));
         die();
         break;
     case '/calculateE':
-        $testarr = ['e' => 101000];
-        echo json_encode($testarr);
+        echo json_encode(RSACalculator::calculateE($_GET['eul']));
         die();
         break;
     case '/calculateD':
-        $testarr = ['d' => 303003];
-        echo json_encode($testarr);
+        echo json_encode(RSACalculator::calculateD($_GET['e'],$_GET['eul'],));
         die();
         break;
     case '/encryptM':
