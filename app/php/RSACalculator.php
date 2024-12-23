@@ -93,14 +93,22 @@ class RSACalculator
     }
 
     //Шифровка и дешифровка. Делается по алгоритму быстрого возведения степени по модулю схема «справа налево»
-    static function encryptM(int $m, int $n, int $e)
+    static function encryptM(int $m, int $n, int $e): array
     {
+        //проверка 1 < m < n (n)
+        if(1 > $m || $m > $n){
+            return ['error' => 'm не удволетворяет диапозону 1 < m < n '];
+        }
         //m^e mod n
         return ['c' => RSACalculator::modExp($m, $e, $n)];
     }
 
-    static function decryptC(int $c, int $d, int $n)
+    static function decryptC(int $c, int $d, int $n): array
     {
+        //проверка 1 < c < n (n)
+        if(1 > $c || $c > $n){
+            return ['error' => 'c не удволетворяет диапозону 1 < c < n '];
+        }
         //c^d mod n
         return ['m' => RSACalculator::modExp($c, $d, $n)];
     }
