@@ -29,7 +29,9 @@ async function calculateD() {
 async function encryptM() {
     const c = document.getElementById("c");
     const m = document.getElementById("m");
-    const url = "http://localhost/encryptM" + "?" + new URLSearchParams({ c: c.value, m: m.value });
+    const e = document.getElementById("e");
+    const n = document.getElementById("n");
+    const url = "http://localhost/encryptM" + "?" + new URLSearchParams({ m: m.value, e: e.value, n: n.value });
     const data = await getData(url);
     c.value = data.c;
 }
@@ -37,7 +39,9 @@ async function encryptM() {
 async function decryptC() {
     const c = document.getElementById("c");
     const m = document.getElementById("m");
-    const url = "http://localhost/decryptC" + "?" + new URLSearchParams({ c: c.value, m: m.value });
+    const d = document.getElementById("d");
+    const n = document.getElementById("n");
+    const url = "http://localhost/decryptC" + "?" + new URLSearchParams({ c: c.value, d: d.value, n: n.value });
     const data = await getData(url);
     m.value = data.m;
 }

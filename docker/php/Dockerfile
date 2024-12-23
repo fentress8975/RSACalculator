@@ -6,6 +6,7 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli;
 RUN docker-php-ext-install gmp && docker-php-ext-enable gmp;
 
 
+
 ARG INSTALL_XDEBUG=false
 RUN if [ ${INSTALL_XDEBUG} = true ]; \
     then \

@@ -1,5 +1,6 @@
 <?php
 
+
 $action = explode("?", $_SERVER["REQUEST_URI"]);
 header('Content-Type: application/json; charset=UTF-8');
 include_once("php/RSACalculator.php");
@@ -19,13 +20,11 @@ switch ($action[0]) {
         die();
         break;
     case '/encryptM':
-        $testarr = ['c' => 21321312];
-        echo json_encode($testarr);
+        echo json_encode(RSACalculator::encryptM($_GET['m'],$_GET['n'],$_GET['e']));
         die();
         break;
     case '/decryptC':
-        $testarr = ['m' => 1018989898];
-        echo json_encode($testarr);
+        echo json_encode(RSACalculator::decryptC($_GET['c'],$_GET['d'],$_GET['n']));
         die();
         break;
 
